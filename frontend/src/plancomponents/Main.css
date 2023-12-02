@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+html,body,*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.main-default-page{
+    width: 100%;
+}
+
+.page-1{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.page-1 h1{
+    letter-spacing: 0.3em;
+    color:white;
+    font-size: 1.8em;
+}
+
+
+.inside-main{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    justify-content: center;
+}
+
+
+
+
+.page-1{
+   background: url('https://wallpapercave.com/wp/wp5901457.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   border-bottom: 5px solid grey;
+}
+
+.page-1 h3{
+    color: rgb(175, 173, 173);
+    font-size: 0.9em;
+}
+
+.page-1 button{
+    cursor:pointer;
+    width: 400px;
+    height:120px;
+    background-color: red;
+    color: rgb(231, 231, 231);
+    font-size: 2em;
+    border-radius: 25px;
+    border: none;
+    margin-top: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.page-1 button:hover{
+    background-color: blue;
+}
+
+
+
+
+.page-2{
+   border-bottom: 5px solid grey;
+   background: white;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   color: black;
+}
+
+.page-2 .inside-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.page-2 h1,.page-3 h1{color: black;}
+
+
+.p2-icon-cont{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#first-box{
+    margin-bottom: 100px;
+}
+
+.icons-box h2{
+    margin-top: 30px;
+    font-size: 1em;
+    letter-spacing: 2px;
+    line-height: 220%;
+}
+
+
+
+
+.page-3{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    border-bottom: 5px solid grey;
+}
+
+.page-3 .inside-main, .page-2 .inside-main{padding:50px 0 50px 0;}
+
+
+.icon-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1em;
+    margin-top: 100px;
+}
+
+.icon-container .header-icon{
+    margin-bottom: 60px;
+    color: grey;
+}
+
+.icon-prop{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: black;
+}
+
+
+
