@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const PersonalDataSchema = new mongoose.Schema({
-    gender: {
-        type: String,
-        required: true
-    },
     weight: {
         type: Number,
         required: true
@@ -17,7 +13,11 @@ const PersonalDataSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    goal: {
+    gender: {
+        type: String,
+        required: true
+    },
+    objective: {
         type: String,
         required: true
     },
@@ -40,7 +40,7 @@ const PersonalDataSchema = new mongoose.Schema({
     priority: {
         type: String,
         required: true
-    },
+    }
 });
 
 const PersonalData = mongoose.model('PersonalData', PersonalDataSchema);

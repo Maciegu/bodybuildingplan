@@ -1,4 +1,4 @@
-const User = require('../../db/models/Register');
+const User = require('../../db/models/register');
 
 class UserActions {
 
@@ -8,6 +8,17 @@ class UserActions {
     const login = req.body.login;
     const email = req.body.email;
     const password = req.body.password;
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      return res.status(422).json({ message: "Password does not meet the requirements." });
+    }
+
+    const existingUser = await User.findOne({ login });
+    if (existingUser) {
+      return res.status(422).json({ message: "Login is already in use. Please choose another." });
+    }
+
     let user;
 
     try{
@@ -33,21 +44,35 @@ class UserActions {
     res.status(200).json(user);
   }
   
-  // aktualizowanie notatki
+  // aktualizowanie usera
   async updateUser(req, res) {
+    const id = req.params.id;
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
     const password = req.body.password;
+  
+    try {
+      const user = await User.findOne({ _id: id });
+      if (!user) {
+        return res.status(404).json({ message: "User not found." });
+      }
+  
+      user.first_name = first_name;
+      user.last_name = last_name;
+      user.password = password;
 
-    const user = await User.findOne({ _id: id });
-    user.first_name = first_name;
-    user.last_name = last_name;
-    user.password = password;
-
-    await user.save();
-
-    res.status(201).json(user);
+      const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        return res.status(422).json({ message: "Password does not meet the requirements." });
+      }
+  
+      await user.save();
+      res.status(201).json(user);
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
   }
+  
 
   // usuwanie notatki
   async deleteUser(req, res) {

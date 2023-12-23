@@ -1,13 +1,13 @@
-const PersonalData = require('../../db/models/PersonalData');
+const PersonalData = require('../../db/models/personaldata');
 
 class PersonalDataActions {
 
   async savePersonalData(req, res) {
-    const gender = req.body.gender;
     const weight = req.body.weight;
     const height = req.body.height;
     const age = req.body.age;
-    const goal = req.body.goal;
+    const gender = req.body.gender;
+    const objective = req.body.objective;
     const level = req.body.level;
     const days = req.body.days;
     const time = req.body.time;
@@ -16,7 +16,7 @@ class PersonalDataActions {
     let personalData;
 
     try{
-        personalData = new PersonalData({ gender, weight, height, age, goal, level, days, time, activity, priority });
+      personalData = new PersonalData({ weight, height, age,gender, objective, level, days, time, activity, priority });
       await personalData.save();
     } 
     catch(err){
@@ -29,6 +29,7 @@ class PersonalDataActions {
   async getAllPersonalDatas(req, res) {
     const doc = await PersonalData.find({});
     res.status(200).json(doc);
+    
   }
 
 
@@ -36,36 +37,45 @@ class PersonalDataActions {
     const id = req.params.id;
     const personalData = await PersonalData.findOne({ _id: id });
     res.status(200).json(personalData);
+   
   }
   
   // aktualizowanie notatki
   async updatePersonalData(req, res) {
-    const gender = req.body.gender;
+    const id = req.params.id; // Add this line
     const weight = req.body.weight;
     const height = req.body.height;
     const age = req.body.age;
-    const goal = req.body.goal;
+    const gender = req.body.gender;
+    const objective = req.body.objective;
     const level = req.body.level;
     const days = req.body.days;
     const time = req.body.time;
     const activity = req.body.activity;
     const priority = req.body.priority;
 
-    const personalData = await PersonalData.findOne({ _id: id });
-    personalData.gender = gender;
-    personalData.weight = weight;
-    personalData.height = height;
-    personalData.age = age;
-    personalData.goal = goal;
-    personalData.level = level;
-    personalData.days = days;
-    personalData.time = time;
-    personalData.activity = activity;
-    personalData.priority = priority;
-
-    await personalData.save();
-
-    res.status(201).json(personalData);
+    try {
+      const personalData = await PersonalData.findOne({ _id: id });
+      if (!personalData) {
+        return res.status(404).json({ message: "personalData not found." });
+      }
+  
+      personalData.weight = weight;
+      personalData.height = height;
+      personalData.age = age;
+      personalData.gender = gender;
+      personalData.objective = objective;
+      personalData.level = level;
+      personalData.days = days;
+      personalData.time = time;
+      personalData.activity = activity;
+      personalData.priority = priority;
+  
+      await personalData.save();
+      res.status(201).json(personalData);
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
   }
 
   // usuwanie notatki

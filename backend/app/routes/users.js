@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
 const userActions = require('../actions/api/userActions');
 
 
 // ENDPOINT DO POBIERANIA NOTATEK
-router.get('/users', userActions.getAllusers);
+router.get('/users', userActions.getAllUsers);
 
 //ENDPOINT DO POBIERANIA KONKRETNEJ NOTATKI
 router.get('/users/:id', userActions.getUser);

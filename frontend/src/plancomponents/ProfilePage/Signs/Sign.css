@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+html,body,*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* .container{
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    height: 100vh;
+} */
+
+
+.main-signform{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* margin-top: 50px; */
+    
+}
+
+.main-container-sign{
+    background-color: rgb(231, 229, 229);
+    height: 580px;
+    width: 400px;
+    border: 3px solid gray;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;  
+}
+
+.cont-toogle-btn{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    min-height: 75px;
+    margin: 5px;
+    color: black;
+}
+
+.cont-toogle-btn button{color: black;}
+
+input{
+    margin: 12px 12px 0 12px;
+    height: 50px;
+    width: 94%;
+    border-radius: 2px;
+    font-family: 'Ubuntu', sans-serif;
+    position: relative;
+}
+input::placeholder{
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    font-size: 0.6em;
+}
+.btn-sign, .btn-log{
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;  
+}
+.btn-sign{
+    background-color: rgb(231, 229, 229);
+    width: 45%; 
+    border: none;
+    border-bottom: 2px solid black;
+}
+.btn-sign:first-child{
+    margin-right: 12px;
+}
+#btn-log{
+    background-color: black;
+    color: white;
+    height: 50px;
+    margin: 15px 12px 0 12px;
+    text-align: center;
+    border-radius: 4px;
+    
+}
+#btn-log:hover{
+    opacity: 80%;
+}
+.warn-text{
+    margin: 10px 12px 0 12px;
+    color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.6em;
+}
+
+
+/* .main-container-sign a{
+    text-decoration: none;
+    margin: 0 2px 0 2px;
+} */
+
+
+input{
+    padding-left: 5px;
+}
+
+div > #login{
+    height: 330px;
+}

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 .App {
-  text-align: center;
+  text-transform: uppercase;
 }
+
 
 .App-logo {
   height: 40vmin;
