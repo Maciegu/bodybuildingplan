@@ -8,6 +8,9 @@ class UserActions {
     const login = req.body.login;
     const email = req.body.email;
     const password = req.body.password;
+    const uniqal_id = req.body.uniqal_id;
+
+    
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
     if (!passwordRegex.test(password)) {
@@ -22,7 +25,7 @@ class UserActions {
     let user;
 
     try{
-      user = new User({ first_name, last_name, login, email, password});
+      user = new User({ first_name, last_name, login, email, password, uniqal_id});
       await user.save();
     } 
     catch(err){
@@ -47,8 +50,8 @@ class UserActions {
   // aktualizowanie usera
   async updateUser(req, res) {
     const id = req.params.id;
-    const first_name = req.body.first_name;
-    const last_name = req.body.last_name;
+    // const first_name = req.body.first_name;
+    // const last_name = req.body.last_name;
     const password = req.body.password;
   
     try {
@@ -57,8 +60,8 @@ class UserActions {
         return res.status(404).json({ message: "User not found." });
       }
   
-      user.first_name = first_name;
-      user.last_name = last_name;
+      // user.first_name = first_name;
+      // user.last_name = last_name;
       user.password = password;
 
       const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;

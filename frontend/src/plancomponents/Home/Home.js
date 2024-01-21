@@ -15,13 +15,16 @@ class Home extends React.Component {
     this.state = {
       users: [],
       personal_users_data:[],
-      registrationSuccess: false
+      training_plans_data:[],
+      registrationSuccess: false,
+      userId: null,
     };
   }
 
   componentDidMount() {
     this.fetchUsers();
     this.fetchPersonalDatas();
+    this.fetchTrainingDatas();
   }
 
   async fetchUsers() {
@@ -38,16 +41,32 @@ class Home extends React.Component {
     this.setState({ personal_users_data });
   }
 
+  async fetchTrainingDatas() {
+    const res = await axios.get('/plans');
+    const training_plans_data = res.data;
+
+    this.setState({ training_plans_data });
+  }
+
+  generateUniqalId() {
+    // Prosta metoda generowania unikalnego identyfikatora na podstawie daty
+    return Date.now().toString();
+  }
+
 
   async addUser(user) {
     const users = [...this.state.users];
     // add to backend
     try {
+      const uniqal_id = this.generateUniqalId();
+      // Dodaj uniqal_id do obiektu użytkownika
+      user.uniqal_id = uniqal_id;
       const res = await axios.post('/users', user);
       const newUser = res.data;
+      
       // add to frontend
       users.push(newUser);
-      this.setState({ users, registrationSuccess: true });
+      this.setState({ users, registrationSuccess: true, userId: uniqal_id });
     } catch (err) {
       NotificationManager.error(err.response.data.message);
     }
@@ -57,40 +76,54 @@ class Home extends React.Component {
     const { login, password} = user;
     try {
       const response = await axios.get(`/users?login=${login}`);
-      const foundUser = response.data[0];
-
-      if (foundUser && foundUser.login === login && foundUser.password === password) {
-        // Jeśli użytkownik istnieje i hasło się zgadza
-        this.props.onLoginSuccess();
-        // Możesz również wykonać inne akcje po zalogowaniu
+      const foundUsers = response.data;
+  
+      const matchingUser = foundUsers.find((user) => user.login === login && user.password === password);
+      if (matchingUser) {
+        const take_uniqal_id = matchingUser.uniqal_id;
+        const response_personal_data = await axios.get(`/personaldatas?uniqal_id=${take_uniqal_id}`);
+        const response_training_data = await axios.get(`/plans?uniqal_id=${take_uniqal_id}`);
+        const response_training_track_data = await axios.get(`/planstrack?uniqal_id=${take_uniqal_id}`);
+        const foundPersonalData = response_personal_data.data[0];
+        const foundTrainingData = response_training_data.data[0];
+        const foundTrainingTrackData = response_training_track_data.data;
+        this.props.onLoginSuccess({matchingUser,foundPersonalData,foundTrainingData, foundTrainingTrackData});
       } else {
         NotificationManager.error('Invalid login or password');
       }
     } catch (err) {
       NotificationManager.error(err.response.data.message);
     }
+
   }
 
+ 
+  
+
+
+
   async addPersonalData(personal_data) {
-    const personal_users_data = [...this.state.personal_users_data]; // fix the variable name
-    // add to backend
+    const personal_users_data = [...this.state.personal_users_data];
     try {
+      personal_data.uniqal_id = this.state.userId;
       const res = await axios.post('/personaldatas', personal_data);
       const newPersonalData = res.data;
-      // add to frontend
-      personal_users_data.push(newPersonalData); // fix the variable name
-      this.props.onLoginSuccess();
-      this.setState({ personal_users_data }); // fix the variable name
+      personal_users_data.push(newPersonalData);
+      this.setState({ personal_users_data });
+      this.props.onLoginSuccess(); 
     } catch (err) {
       NotificationManager.error(err.response.data.message);
     }
   }
 
+ 
+
   
   render() {
 
     const { onLoginSuccess } = this.props;
-    const { registrationSuccess } = this.state;
+    const { userData } = this.props;
+    const { registrationSuccess} = this.state;
 
 
     return (
@@ -100,7 +133,7 @@ class Home extends React.Component {
           <Forms addPersonalData={(personal_data) => this.addPersonalData(personal_data)}/>
         ) : (
           <>
-            <Header loginUser={(user) => this.loginUser(user)} addUser={(user) => this.addUser(user)}/>
+            <Header loginUser={(user) => this.loginUser(user)}  addUser={(user) => this.addUser(user)}/>
             <Main />
             <Footer />
           </>

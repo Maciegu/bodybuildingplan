@@ -1,0 +1,14 @@
+
+.plan-options-container {
+    margin-bottom: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+
+select{
+    width: 100%;
+    height: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+  

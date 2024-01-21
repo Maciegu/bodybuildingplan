@@ -1,31 +1,21 @@
-
-.container{
-    
-    color: white;
-    text-transform: uppercase;
-}
-
-
-
-/*           PLAN PAGE !!!!!!!!!!!!       */
-
-.cont-menu{
+.cont-menu {
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 70px;
+    margin-bottom: 50px;
     color: black;
 }
 
-.profile-cont{
+.profile-cont {
     width: 80%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.profile-avatar{
+.profile-avatar {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,96 +28,14 @@
     padding: 15px;
 }
 
-.avatar{
+.avatar {
     width: 50px;
     height: 50px;
     background-color: black;
     margin-right: 25px;
 }
 
-.task-menu{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
-    margin: 50px 0 50px 0;
-    font-size: 1.3em;
-}
-
-.task-menu a{
-    text-decoration: none;
-    color: black;
-}
-
-.task-line{
-    width: 100%;
-    border-bottom: 3px solid black;
-    margin-bottom: 25px;
-}
-
-.task-item{
-    width: 300px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.inf-menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    
-    
-}
-
-.info,.task-info{
-    font-size: 0.8em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    
-}
-
-.info span, .task-info span{
-    margin-left: 3px;
-    font-weight: normal;
-}
-
-.task-info span{font-size: 0.9em;}
-
-
-.plan-cont{
-    margin: 0 0 50px 0;
-    font-size: 1.5em;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    
-}
-.days-number{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-weight: bold;
-}
-
-.cont-exe{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.plan-cont h2{
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 15px;
-}
-
-.rzad-danych{
+.rzad-danych {
     margin-top: 10px;
     display: flex;
     flex-direction: row;
@@ -136,432 +44,64 @@
     margin-bottom: 20px;
 }
 
-.rzad-danych div{
+.rzad-danych div {
     width: calc(24% - 60px);
-    
 }
 
-#first-rzad{
+#first-rzad {
     font-size: 1.2em;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-.day,.plan{
-    width:180px;
+.results-cont {
+    width: 80%;
 }
 
-.plan{
-    display: flex;
-    flex-direction: column;
-    
+.results-cont h2 {
+    margin-bottom: 40px;
 }
 
-.plan div{
-    margin-top: 25px;
-    font-size: 0.9em;
-
+input[type=number] {
+    width: 120px;
+    height: 20px;
+    margin: 0;
+    font-size: 1em;
+    font-family: 'Rajdhani', sans-serif;
+    border: 1px solid black;
 }
 
-.search-bar-cont{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: center;
+input[type=number]::placeholder {
+    font-size: 10px;
 }
 
-.search-bar-cont input{
-    margin: 15px 12px 0 12px;
+.save-plan {
+    width: 100px;
     height: 50px;
-    width: 90%;
-    border-radius: 2px;
-    font-family: 'Ubuntu', sans-serif;
-    position: relative;
-    padding-left: 5px;
-}   
-
-input::placeholder{
-    position: absolute;
-    top: 3px;
-    left: 10px;
-    font-size: 0.9em;
-}
-
-.tutorials-cont{
-    margin-top: 30px;
-    margin-left: 12px;
-}
-
-.exercise-item{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: flex-start;
-    margin-bottom: 15px;
-    transition: 0.5s ease-in-out;
+    padding: 5px 10px;
+    background-color: rgb(46, 238, 46);
+    color: white;
+    border: 3px solid black;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.exercise-item:hover{
-    font-size: 1.2em;
+.save-plan:hover {
+    background-color: #3cbc3c;
 }
 
-.ex-photo{
-    width: 100px;
-    height: 100px;
-    background-color: black;
-}
-.ex-name{
+.update-plan {
     margin-left: 15px;
+    width: 100px;
+    height: 50px;
+    padding: 5px 10px;
+    background-color: rgb(243, 184, 24);
+    color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-
-@media screen and (max-width: 300px){
-    .header-menu{
-        flex-direction: column;
-        justify-content: center;
-        height: 15vh;
-        font-size: 0.6em;
-    }
-    .head-logo i{
-        font-size: 2.7em;
-        top: 2%;
-    }
-    .head-item{
-        margin-right: 2px;
-    }
-    .profile-cont{
-        width: 100%;
-        margin: 5px;
-    }
-    
-
-    .cont-menu{
-        margin-top:5px;
-    }
-    .profile-avatar{
-        font-size: 0.5em;
-    }
-    .avatar{
-        width: 25px;
-        height: 25px;
-        margin-right: 15px;
-    }
-    .plan-cont{
-        font-size: 0.6em;
-        margin-top: 20px;
-        margin-left: 10px;
-        
-        
-    }
-    .cont-exe{
-        margin-top: 5px;     
-    }
-    
-    .plan div{
-        margin-top: 10px;
-    }
-    .inf-menu{ 
-        margin: 5px 0 5px 0;
-    }
-    
-    .info{
-        margin-top: 15px;
-        font-size: 0.6em;
-        font-weight: bold;
-    }
-    
-    .info span{
-        margin-left: 12px;
-        font-weight: normal;
-    }
-
-    
-
-
-    .task-menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin: 15px 0 5px 0;
-        font-size: 0.6em;
-    }
-    
-    
-    .task-line{
-        width: 100%;
-        border-bottom: 1px solid black;
-        margin-bottom: 5px;
-    }
-    
-    .task-item{
-        margin-bottom: 20px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        
-    }
-    .task-info{
-        margin-top:1px;
-
-    }
-
-    .task-info span{
-        margin-left: 3px;
-        font-weight: normal;
-    }
-    
-    .search-bar-cont input::placeholder{
-        font-size: 0.5em;
-    }
-
-    .ex-photo{
-        width: 30px;
-        height: 30px;
-    }
-
-    .ex-name{
-        margin-left: 3px;
-        font-size: 0.5em;
-    }
-    
+.update-plan:hover {
+    background-color: #9c7c24;
 }
-
-@media screen and (min-width: 301px) and (max-width: 529px){
-    .header-menu{
-        flex-direction: column;
-        justify-content: center;
-        height: 17vh;
-    }
-    .profile-avatar{
-        font-size: 0.7em;
-    }
-    .cont-menu{
-        margin-top: 15px;
-    }
-    .plan-cont{
-        font-size: 0.7em;
-        margin-top: 15px;
-    }
-    .cont-exe{
-        margin-top: 15px;
-    }
-    .plan div{
-        margin-top: 15px;
-    }
-    .inf-menu{
-        margin: 15px 0 15px 0;
-    }
-    
-    .info{
-        margin-top: 15px;
-        font-size: 0.7em;
-        font-weight: bold;
-    }
-    
-    .info span{
-        margin-left: 15px;
-        font-weight: normal;
-    }
-
-    .task-menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin: 20px 0 5px 0;
-        font-size: 0.7em;
-        
-    }
-    
-    
-    .task-line{
-        width: 100%;
-        border-bottom: 1px solid black;
-        margin-bottom: 5px;
-    }
-    
-    .task-item{
-        margin-bottom: 20px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        
-    }
-    .task-info{
-        margin-top:3px;
-
-    }
-
-    .task-info span{
-        margin-left: 5px;
-        font-weight: normal;
-    }
-
-    .search-bar-cont input::placeholder{
-        font-size: 0.6em;
-    }
-
-    .ex-photo{
-        width: 50px;
-        height: 50px;
-    }
-
-    .ex-name{
-        margin-left: 7px;
-        font-size: 0.7em;
-    }
-    .rzad-danych{
-        margin-top: 8px;
-        font-size: 0.7em;
-        margin-bottom: 16px;
-        
-    }
-
-    #first-rzad{
-        font-size: 0.9em;
-        margin-bottom: 16px;
-        font-weight: bold;
-    }
-}
-
-@media screen and (min-width: 530px) and (max-width: 1200px){
-    .header-menu{
-        flex-direction: column;
-        justify-content: center;
-        height: 17vh;
-    }
-    .head-item{
-        margin-right: 5px;
-    }
-    .profile-avatar{
-        font-size: 1em;
-
-    }
-    .cont-menu{
-        margin-top: 5px;
-    }
-    .plan-cont{
-        font-size: 1em;
-        margin-top: 15px;
-    }
-    .cont-exe{
-        margin-top: 15px;
-    }
-    .plan div{
-        margin-top: 15px;
-    }
-    .inf-menu{
-        margin: 15px 0 15px 0;
-    }
-    
-    .info{
-        margin-top: 15px;
-        font-size: 1em;
-        font-weight: bold;
-    }
-    
-    .info span{
-        margin-left: 15px;
-        font-weight: normal;
-    }
-
-    .task-menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 20px 0 5px 0;
-        font-size: 1em;
-        
-    }
-    
-    
-    .task-line{
-        width: 100%;
-        border-bottom: 3px solid black;
-        margin-bottom: 5px;
-    }
-    
-    .task-item{
-        margin-bottom: 20px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin-right: 10px;
-        
-    }
-    .task-info{
-        margin-top:3px;
-
-    }
-
-    .task-info span{
-        margin-left: 5px;
-        font-weight: normal;
-    }
-
-
-    .search-bar-cont input{
-        margin: 15px 12px 0 12px;
-        height: 50px;
-        width: 90%;
-        padding-left: 5px;
-    }   
-
-    input::placeholder{
-        position: absolute;
-        top: 3px;
-        left: 10px;
-        font-size: 0.9em;
-    }
-
-
-    .ex-name{
-        margin-left: 15px;
-        font-size: 0.9em;
-    }
-
-    .rzad-danych{
-        margin-top: 8px;
-        font-size: 0.7em;
-        margin-bottom: 8px;
-   
-        
-    }
-
-    #first-rzad{
-        font-size: 0.8em;
-        margin-bottom: 16px;
-        font-weight: bold;
-    }
-}
-
-/* @media screen and (min-width: 1001px) and (max-width: 1388px){
-    .task-menu{
-        margin: 20px 0 5px 0;
-            
-    }
-    
-    
-    .task-line{
-        border-bottom: 3px solid black;
-        margin-bottom: 10px;
-    }
-    
-    .task-item{
-        margin-bottom: 20px;
-        margin-right: 15px;
-        font-size: 0.9em;   
-        
-    }
-    .task-info{
-        font-size: 0.8em;   
-
-    }
-
-   
-} */

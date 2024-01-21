@@ -7,13 +7,11 @@ import { faBars, faDumbbell, faUserDoctor, faListCheck, faUser, faDisplay, faCha
 import { faNutritionix, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import './Main.css';
 
-const MyStyle={
-    overlay: {
-      // backgroundColor: 'rgba(0, 0, 0, 0.5)', // kolor tła overlay
-    },
+const headerStyle={
+
     content: {
       background: 'transparent',
-      border: 'none',           // Usuń obramowanie modala
+      border: 'none', 
       padding: 0,     
       maxWidth: '25%',
       width: 'auto',
@@ -36,7 +34,7 @@ function NavSekcja(){
                     <Modal
                         isOpen={openRegister}
                         onRequestClose={handleRegisterClose}
-                        style={MyStyle}
+                        style={headerStyle}
                         >
                         <Register />  
                     </Modal>

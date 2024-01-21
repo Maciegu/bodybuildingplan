@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const planActions = require('../actions/api/planActions');
+const planActions = require('../actions/api/trainingPlanActions');
 
-router.get('/plans', planActions.getAllPlans);
-
-
-router.get('/plans/:id', planActions.getPlan);
+router.get('/plans', planActions.getAllTrainingPlans);
 
 
-router.post('/plans', planActions.savePlan);
+router.get('/plans/:id', planActions.getTrainingPlan);
 
 
-router.put('/plans/:id', planActions.updatePlan);
+router.post('/plans', planActions.saveTrainingPlan);
 
 
-router.delete('/plans/:id', planActions.deletePlan);
+router.put('/plans/:id', planActions.updateTrainingPlan);
+
+
+router.delete('/plans/:id', planActions.deleteTrainingPlan);
 
 module.exports  = router;

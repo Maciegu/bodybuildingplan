@@ -23,6 +23,9 @@ const RegisterSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    uniqal_id: {
+        type: Number
+    }
 });
 
 const User = mongoose.model('User', RegisterSchema);

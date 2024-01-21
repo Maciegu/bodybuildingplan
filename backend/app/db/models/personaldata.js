@@ -5,6 +5,10 @@ const PersonalDataSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    weightGoal: {
+        type: Number,
+        required: true
+    },
     height: {
         type: Number,
         required: true
@@ -40,7 +44,11 @@ const PersonalDataSchema = new mongoose.Schema({
     priority: {
         type: String,
         required: true
+    },
+    uniqal_id: {
+        type: Number
     }
+    
 });
 
 const PersonalData = mongoose.model('PersonalData', PersonalDataSchema);
